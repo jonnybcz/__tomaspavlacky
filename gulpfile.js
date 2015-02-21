@@ -9,9 +9,13 @@ var path = require('path');
 
 // Concatenate & Minify JS
 gulp.task('scripts', function() {
-    return gulp.src('js/*.js')
-        .pipe(concat('dist/all.min.js'))
-        .pipe(gulp.dest('dist'))
+    gulp.src('src/js/*.js')
+        .pipe(concat('js/all.js'))
+        .pipe(babel())
+        .pipe(gulp.dest('dist'));
+
+    gulp.src('src/js/*.js')
+        .pipe(concat('js/all.min.js'))
         .pipe(babel())
         .pipe(uglify())
         .pipe(gulp.dest('dist'));
@@ -19,11 +23,11 @@ gulp.task('scripts', function() {
 
 // Compile LESS -> CSS
 gulp.task('less', function () {
-  gulp.src('./src/less/*.less')
-    .pipe(less({
-      paths: [ path.join(__dirname, 'less', 'includes') ]
-    }))
-    .pipe(gulp.dest('./dist/css'));
+    gulp.src('./src/less/*.less')
+        .pipe(less({
+            paths: [ path.join(__dirname, 'less', 'includes') ]
+        }))
+        .pipe(gulp.dest('./dist/css'));
 });
 
 gulp.task('templates', function() {
@@ -33,7 +37,7 @@ gulp.task('templates', function() {
             locals: YOUR_LOCALS,
             pretty: true
         }))
-    .pipe(gulp.dest('./dist/'))
+        .pipe(gulp.dest('./dist/'))
 });
 
 // Watch Files For Changes
