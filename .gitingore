@@ -1,0 +1,9 @@
+# OSX
+.DS_STORE
+._.DS_STORE
+
+# NPM
+node_modules
+
+# Project
+dist
