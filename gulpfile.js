@@ -30,6 +30,12 @@ gulp.task('less', function () {
         .pipe(gulp.dest('./dist/css'));
 });
 
+// copy img
+gulp.task('copy', function () {
+    gulp.src(['src/img/**/*'])
+        .pipe(gulp.dest('dist/img'));
+});
+
 gulp.task('templates', function() {
     var YOUR_LOCALS = {};
     gulp.src('src/*.jade')
