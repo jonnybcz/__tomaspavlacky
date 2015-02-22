@@ -5,12 +5,30 @@ html
     link(rel='stylesheet', href='./css/style.css')
     script(src='js/all.js')
   body
-    h1 Radius
-    div#control
-        input#range(type='range', min='0', max='100')
-    div#radius
-        input.leftCornerTop
-        input.rightCornerTop
-        input.leftCornerBottom
-        input.rightCornerBottom
+    div#page
+        h1 Radius
+        div#control
+            input#range(type='range', min='0', max='300', value='16')
+        div#radius
+            div#output
+            input#leftCornerTop(value='16')
+            input#rightCornerTop(value='16')
+            input#leftCornerBottom(value='16')
+            input#rightCornerBottom(value='16')
+
+        script.
+            var dom = {
+                radius: document.querySelector("#radius"),
+                output: document.querySelector("#output"),
+                range: document.querySelector("#range")
+            };
+
+            dom.textInputs = {
+                leftCornerTop: document.querySelector("#leftCornerTop"),
+                rightCornerTop: document.querySelector("#rightCornerTop"),
+                leftCornerBottom: document.querySelector("#leftCornerBottom"),
+                rightCornerBottom: document.querySelector("#rightCornerBottom")
+            };
+
+            new Radius(dom);
 

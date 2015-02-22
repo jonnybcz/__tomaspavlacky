@@ -1,3 +1,66 @@
-html {
-    background: grey;
+html, body {
+    /*background: url('../img/background.png') repeat; */
+    width: 100%;
+    height: 100%;
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+#page {
+    margin: 0 auto;
+    width: 500px;
+
+    h1 {
+        text-align: center;
+        font-size: 30px;
+        font-weight: 300;
+        color: #A0A0A0;
+    }
+}
+
+#range {
+    width: 100%;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+#radius {
+    height: 500px;
+    border: 1px solid #A0A0A0;
+    position: relative;
+    background: white;
+    text-align: center;
+
+    #output {
+        margin-top: 150px;
+        display: inline-block;
+    }
+
+    #leftCornerTop,
+    #rightCornerTop,
+    #leftCornerBottom,
+    #rightCornerBottom {
+        position: absolute;
+        width: 30px;
+    }
+
+    #leftCornerTop {
+        top: 30px;
+        left: -60px;
+    }
+
+    #rightCornerTop {
+        top: 30px;
+        right: -60px;
+    }
+
+    #leftCornerBottom {
+        bottom: 30px;
+        left: -60px;
+    }
+
+    #rightCornerBottom {
+        bottom: 30px;
+        right: -60px;
+    }
 }
