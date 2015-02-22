@@ -40,7 +40,7 @@ class Radius {
     }
 
     printCSS() {
-        this._dom.output.innerHTML = `border-radius: ${this._dom.textInputs.leftCornerTop.value}px ${this._dom.textInputs.rightCornerTop.value}px ${this._dom.textInputs.rightCornerBottom.value}px ${this._dom.textInputs.leftCornerBottom.value}px;`;
+        this._dom.output.innerHTML = this._dom.radius.getAttribute("style");
     }
 
     /**
