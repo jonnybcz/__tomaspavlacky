@@ -1,0 +1,25 @@
+h1 Radius
+div#control
+    input#range(type='range', min='0', max='300', value='16')
+div#radiusExample
+    div#output
+    input#leftCornerTop(value='16')
+    input#rightCornerTop(value='16')
+    input#leftCornerBottom(value='16')
+    input#rightCornerBottom(value='16')
+
+script.
+    var dom = {
+        radius: document.querySelector("#radiusExample"),
+        output: document.querySelector("#output"),
+        range: document.querySelector("#range")
+    };
+
+    dom.textInputs = {
+        leftCornerTop: document.querySelector("#leftCornerTop"),
+        rightCornerTop: document.querySelector("#rightCornerTop"),
+        leftCornerBottom: document.querySelector("#leftCornerBottom"),
+        rightCornerBottom: document.querySelector("#rightCornerBottom")
+    };
+
+    new Radius(dom);

@@ -5,30 +5,27 @@ html
     link(rel='stylesheet', href='./css/style.css')
     script(src='js/all.js')
   body
-    div#page
-        h1 Radius
-        div#control
-            input#range(type='range', min='0', max='300', value='16')
-        div#radius
-            div#output
-            input#leftCornerTop(value='16')
-            input#rightCornerTop(value='16')
-            input#leftCornerBottom(value='16')
-            input#rightCornerBottom(value='16')
+    div#container
+        div#page
+            div#placeRadius
+                include ./radius.jade
+            div#placeBoxShadow
+                include ./boxshadow.jade
+            div#placeKeyCodes
+                include ./keycodes.jade
+        div#navigation
+            ul
+                li
+                    a(href="#radius") CSS Radius
+                li
+                    a(href="#boxshadow") CSS Box-Shadow
+                li
+                    a(href="#keycodes") JS KeyCodes
 
-        script.
-            var dom = {
-                radius: document.querySelector("#radius"),
-                output: document.querySelector("#output"),
-                range: document.querySelector("#range")
-            };
-
-            dom.textInputs = {
-                leftCornerTop: document.querySelector("#leftCornerTop"),
-                rightCornerTop: document.querySelector("#rightCornerTop"),
-                leftCornerBottom: document.querySelector("#leftCornerBottom"),
-                rightCornerBottom: document.querySelector("#rightCornerBottom")
-            };
-
-            new Radius(dom);
+    script.
+        var navigation = new Navigation();
+        navigation.addPage("radius", document.querySelector("#navigation a[href='#radius']"), document.querySelector("#placeRadius"));
+        navigation.addPage("boxshadow", document.querySelector("#navigation a[href='#boxshadow']"), document.querySelector("#placeBoxShadow"));
+        navigation.addPage("keycodes", document.querySelector("#navigation a[href='#keycodes']"), document.querySelector("#placeKeyCodes"));
+        navigation.go("keycodes");
 
